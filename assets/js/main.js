@@ -20,13 +20,12 @@
       $body = $("body"),
       $wrapper = $("#wrapper");
 
-    $(window).scroll(function () {
-      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-        //   $this.triggerHandler('---show');
-        console.log("bottom");
-        $("#footer-abt").click();
-      }
-    });
+    window.onscroll = function(ev) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            $("#footer-abt").click();
+        }
+    };
+    
     // Hack: Enable IE workarounds.
     if (skel.vars.IEVersion < 12) $body.addClass("ie");
 
