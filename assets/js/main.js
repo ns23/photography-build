@@ -14,18 +14,18 @@
     small: "(max-width: 736px)",
     xsmall: "(max-width: 480px)",
   });
-
+  window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        $("#footer-abt").click();
+    }
+};
   $(function () {
     var $window = $(window),
       $body = $("body"),
       $wrapper = $("#wrapper");
 
-    window.onscroll = function(ev) {
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            $("#footer-abt").click();
-        }
-    };
     
+
     // Hack: Enable IE workarounds.
     if (skel.vars.IEVersion < 12) $body.addClass("ie");
 
